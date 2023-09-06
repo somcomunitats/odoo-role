@@ -126,7 +126,7 @@
   ansible.builtin.shell: >
     {{ odoo_role_odoo_python_path }} -m pip show odoo
   register: odoo_package_check
-  failed_when: odoo_package_is_installed.rc not in [0,1]
+  failed_when: odoo_package_check.rc not in [0,1]
   
 - name: Set boolean for Odoo package installation
   set_fact:
